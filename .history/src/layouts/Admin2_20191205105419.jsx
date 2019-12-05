@@ -1,0 +1,46 @@
+import React, { Component } from "react";
+import { Switch, Route, Link } from 'react-router-dom';
+import { Layout, Header, Navigation, Drawer, Content } from 'react-mdl';
+import LandingPage from '../pages/admin2/landingpage';
+import AboutMe from '../pages/admin2/aboutme';
+import Contact from '../pages/admin2/contact';
+import Projects from '../pages/admin2/projects';
+import Resume from '../pages/admin2/resume';
+
+class Admin2 extends Component {
+  
+  render() {
+    return (
+      <div className="wrapper">
+        <Layout>
+            <Header className="header-color" title={<Link style={{textDecoration: 'none', color: 'white'}} to="/">MyPortfolio</Link>} scroll>
+                <Navigation>
+                    <Link to="/resume">Resume</Link>
+                    <Link to="/aboutme">About Me</Link>
+                    <Link to="/projects">Projects</Link>
+                    <Link to="/contact">Contact</Link>
+                </Navigation>
+            </Header>
+            <Drawer title={<Link style={{textDecoration: 'none', color: 'black'}} to="/">MyPortfolio</Link>}>
+                <Navigation>
+                <Link to="/resume">Resume</Link>
+                <Link to="/aboutme">About Me</Link>
+                <Link to="/projects">Projects</Link>
+                <Link to="/contact">Contact</Link>
+                </Navigation>
+            </Drawer>
+            <Content>
+                <div className="page-content" />
+                <Route path="/admin2" component={LandingPage} />
+                <Route path="/admin2/aboutme" component={AboutMe} />
+                <Route path="/admin2/contact" component={Contact} />
+                <Route path="/admin2/projects" component={Projects} />
+                <Route path="/admin2/resume" component={Resume} />
+            </Content>
+        </Layout>
+      </div>
+    );
+  }
+}
+
+export default Admin2;
